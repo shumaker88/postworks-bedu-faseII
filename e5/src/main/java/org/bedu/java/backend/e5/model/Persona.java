@@ -1,4 +1,4 @@
-package org.bedu.java.backend.e4.model;
+package org.bedu.java.backend.e5.model;
 
 public class Persona {
     private String nombre;
