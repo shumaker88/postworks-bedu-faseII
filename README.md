@@ -18,16 +18,16 @@ Data, Thymeleaf, HTML, CSS, MySQL, Gradle y Git.
 
 ## Postworks
 
-| Sesión | Tema                                                               |
-| ------ | ------------------------------------------------------------------ |
-| 1      | [Construcción de proyectos con Gradle]("./e1")                     |
-| 2      | [Patrones de diseño]("./e2")                                       |
-| 3      | [Anotaciones y pruebas unitarias con JUnit]("./e3")                |
-| 4      | [Introducción a Spring Boot]("./e4")                               |
-| 5      | [Java Beans y la inversión de Control(IoC) en Spring Boot]("./e5") |
-| 6      | [Patrón MVC con Spring Boot]("./e6")                               |
-| 7      | [Integración de Thymeleaf con Spring Boot]("./e7")                 |
-| 8      | [Conexión a base de datos con Spring Data]("./e8")                 |
+| Sesión | Tema                                                             |
+| ------ | ---------------------------------------------------------------- |
+| 1      | [Construcción de proyectos con Gradle](./e1)                     |
+| 2      | [Patrones de diseño](./e2)                                       |
+| 3      | [Anotaciones y pruebas unitarias con JUnit](./e3)                |
+| 4      | [Introducción a Spring Boot](./e4)                               |
+| 5      | [Java Beans y la inversión de Control(IoC) en Spring Boot](./e5) |
+| 6      | [Patrón MVC con Spring Boot](./e6)                               |
+| 7      | [Integración de Thymeleaf con Spring Boot](./e7)                 |
+| 8      | [Conexión a base de datos con Spring Data](./e8)                 |
 
 ---
 
