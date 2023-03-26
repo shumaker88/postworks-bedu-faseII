@@ -1,7 +1,7 @@
-package org.bedu.java.backend.e6.service;
+package org.bedu.java.backend.e7.service;
 
-import org.bedu.java.backend.e6.model.Persona;
-import org.bedu.java.backend.e6.persistence.AgendaMemoryDao;
+import org.bedu.java.backend.e7.model.Persona;
+import org.bedu.java.backend.e7.persistence.AgendaMemoryDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +20,6 @@ public class AgendaService {
     }
 
     public Persona guardaPersona(Persona persona) {
-        if (!validadorTelefono.isValido(persona.getTelefono())) {
-            return null;
-        }
         String telefono = validadorTelefono.limpiaNumero(persona.getTelefono());
 
         persona.setTelefono(telefono);

@@ -1,17 +1,18 @@
-package org.bedu.java.backend.e6.controller;
+package org.bedu.java.backend.e7.controller;
 
 
-import org.bedu.java.backend.e6.model.Persona;
-import org.bedu.java.backend.e6.service.AgendaService;
+import javax.validation.Valid;
+
+import org.bedu.java.backend.e7.model.Persona;
+import org.bedu.java.backend.e7.service.AgendaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.Set;
-
-
-@RestController
-@RequestMapping("/api/v1/agenda")
+@Controller
 public class AgendaController {
 
     private final AgendaService agendaService;
@@ -21,18 +22,24 @@ public class AgendaController {
         this.agendaService = agendaService;
     }
 
-    @PostMapping
-    public ResponseEntity<Persona> guardaPersona(@RequestBody Persona persona) {
-        Persona resultado = agendaService.guardaPersona(persona);
+    @GetMapping({"/", "/index"})
+    public String formularioRegistro(Model model) {
+        model.addAttribute("persona", new Persona());
+        model.addAttribute("listaPersonas", agendaService.getPersonas());
 
-        if (resultado == null) {
-            return ResponseEntity.badRequest().build();
-        }
-        return ResponseEntity.ok(resultado);
+        return "index";
     }
 
-    @GetMapping
-    public ResponseEntity<Set<Persona>> getPersonas(){
-        return ResponseEntity.ok(agendaService.getPersonas());
+    @PostMapping("/registro")
+    public ModelAndView registra(@Valid Persona persona, Errors errors) {
+        
+        if (!errors.hasErrors()) {
+            agendaService.guardaPersona(persona);
+        }
+
+
+        ModelAndView mav = new ModelAndView("index");
+        mav.addObject("listaPersonas", agendaService.getPersonas());
+        return mav;
     }
 }

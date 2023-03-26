@@ -1,6 +1,7 @@
-package org.bedu.java.backend.e6.persistence;
+package org.bedu.java.backend.e7.persistence;
 
-import org.bedu.java.backend.e6.model.Persona;
+import org.bedu.java.backend.e7.model.Persona;
+import org.bedu.java.backend.e7.service.FormateadorTelefono;
 import org.springframework.stereotype.Repository;
 
 import java.util.Set;
@@ -11,8 +12,14 @@ import java.util.TreeSet;
 public class AgendaMemoryDao {
 
     private static final SortedSet<Persona> personas = new TreeSet<>();
+    private final FormateadorTelefono formateadorTelefono;
+
+    public AgendaMemoryDao(FormateadorTelefono formateadorTelefono) {
+        this.formateadorTelefono = formateadorTelefono;
+    }
 
     public Persona guardaPersona(Persona persona) {
+        persona.setTelefono(formateadorTelefono.formatea(persona.getTelefono()));
         personas.add(persona);
         return persona;
     }
